@@ -1,0 +1,564 @@
+ /* General Styles */
+ :root {
+    --black: #303030;
+    --creamy-joe: #d8d0bb;
+    --joerange: #f45f2c;
+    --untitled-ui-gray400: #98a2b3;
+    --white: white;
+    --untitled-ui-gray500: #667085;
+    --untitled-ui-gray600: #475467;
+    --untitled-ui-gray200: #eaecf0;
+    --untitled-ui-gray700: #344054;
+}
+ * {
+    box-sizing: border-box;
+  }
+ body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
+    
+    
+    
+    
+}
+.navbar-brand img {
+    position: relative; /* Make the image relative to its container */
+    z-index:2; /* Ensure it appears above the overlay */
+    
+}
+
+/* Video Section */
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 98vh;
+    overflow:hidden;
+
+    
+}
+.intro{
+    font-family: 'Beachday', sans-serif;
+    color:#f45f2c;
+    font-size:70px;
+    margin-top: 200px;
+    text-align: center;
+
+                                                
+}
+
+.video-section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+  
+}
+.bio{
+    background-color:var(--creamy-joe);
+    color:#303030;
+    font-family: 'Beachday', sans-serif;
+    text-align: center;
+    font-size:40px;
+    font-weight: 200;
+    height:90vh;
+    justify-content: center;
+}
+.bio p {
+    opacity: 0; /* Default hidden */
+    transform: translateX(50px); /* Slide in from below */
+    animation: fadeIn 1.0s ease forwards; /* Animation */
+    animation-play-state: paused; /* Pause until it's in view */
+}
+.bio p:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.bio p:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.bio p:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+/* Video Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.intro {
+    font-size: 90px;
+    text-transform: uppercase;
+    color:#f45f2c; /* Tertiary Color */
+    position: relative;
+    overflow: hidden; /* Ensures text doesn't overflow during animation */
+  }
+  
+  .intro span {
+    display: block;
+    transform: translateX(-100px);
+    opacity: 0;
+    animation: textAnimation 8s ease forwards;
+  }
+  
+  .intro span:first-child {
+    animation-delay: 0.3s;
+  }
+  
+
+  @keyframes textAnimation {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    20% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    80% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0); /* Remains in place */
+      opacity: 1; /* Fully visible */
+    }
+  }
+
+/* Class to apply when in view */
+.video-overlay .intro.in-view {
+    transform: translateY(0); /* Final position */
+    opacity: 1; /* Fully visible */
+}
+.video-overlay h1 {
+    font-size: 100px;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.video-overlay a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    border: 2px solid white;
+    color: white;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.video-overlay a:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Navbar */
+.topnav {
+    position: absolute; /* Absolute positioning to overlay on video */
+    top: 0;
+    left: 0;
+    width: 100%;
+     /* Semi-transparent background */
+    z-index: 1; /* Ensure it is above the video and overlay */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    color: white;
+}
+
+.topnav a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 17px;
+    display: inline-block;
+    
+}
+
+.topnav a.icon {
+    background: none;
+    display: block;
+}
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: center;
+    filter: blur(0px);
+    transition: width 0.3s ease-in-out; /* Smooth opening animation */
+    padding-top: 60px;
+}
+
+.overlay.open {
+    width: 30%; /* Adjust to desired width */
+    height: 98%;
+}
+
+.overlay a {
+    padding: 5px 5px;
+    text-decoration: none;
+    font-size: 35px;
+    color: white;
+    display: block;
+    text-align: center;
+    font-family: 'Beachday', sans-serif;
+    opacity: 0;
+    transform: translateX(-20px); /* Start off-screen */
+    transition: all 0.3s ease-in-out; /* Smooth content animation */
+}
+
+.overlay.open a {
+    opacity: 1;
+    transform: translateX(0); /* Move into view */
+}
+
+.overlay a:hover {
+    color: rgb(214, 214, 214);
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 36px;
+    color: #fff;
+
+}
+img{
+    width:300px;
+    margin-right:50px;
+}
+
+/* Video Overlay Content */
+.works-bg{
+    background-color:#303030;
+}
+.works{
+    color:#f45f2c;
+    font-size:90px;
+    text-align: center;
+    font-weight: 100;
+    line-height:1.5;
+    display: block;
+    font-family:'Beachday', sans-serif;;
+}
+.containerc {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;/* Smooth transition for scaling */
+}
+
+/* Ensure images fill their containers fully */
+.containerc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    transition: opacity 0.3s ease;
+}
+
+/* Video settings */
+.containerc video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+/* Hover effect to show video and hide image */
+.containerc:hover img {
+    opacity: 0;
+}
+
+.containerc:hover video {
+    display: block;
+    transform: scale(1.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay on video */
+.poverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark translucent background */
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.containerc:hover .poverlay {
+    opacity: 1;
+}
+
+/* Image Overlay Text */
+.imoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark translucent background */
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.containerc:hover .imoverlay {
+    opacity: 1;
+}
+
+/* Expand the container on hover */
+.containerc:hover {
+    transform: scale(1.1); /* Slightly expand the container */
+    z-index: 2; /* Ensure the hovered container is on top */
+}
+.image-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    position: relative;
+    width: 379px;  /* width of your image */
+    height: 568px; /* height of your image */
+    box-shadow: 0px 0px 30px 5px rgba(0,0,0,.3);
+    transform: rotate(-2deg); /* slight rotation for the effect */
+    border: 10px solid #f45f2c;
+    overflow: hidden; /* ensures the image fits within the wrapper */
+  }
+  
+  .image-wrapper img {
+    position: absolute;
+    width: 100%;  /* Make the image fill the container */
+    height: 100%;
+    object-fit: cover;  /* Ensures that the image maintains its aspect ratio */
+    animation: imageEffect 40s infinite;
+  }
+  
+
+
+i{
+    font-size: 30px;
+}
+
+.hamburger {
+    width: 75px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    z-index: 10;
+    margin-top:40px;
+    margin-bottom:95px;
+    margin-right:20px;
+    
+      
+}
+
+.hamburger span {
+    display: block;
+    height: 5px;
+    width: 120%;
+    background-color:rgb(255, 253, 223);
+    border-radius:none;
+    transition: all 0.3s ease;
+    position: relative;
+    
+
+    
+}
+
+
+/* Slanted First Bar */
+.hamburger span:nth-child(1) {
+    transform: rotate(-7deg); /* Slant the first bar */
+
+}
+
+/* Hover Effect */
+.hamburger:hover span:nth-child(1) {
+    transform: translateY(-8px) rotate(-20deg);
+}
+
+.hamburger:hover span:nth-child(2) {
+    transform: translateY(-4px);
+}
+
+.hamburger:hover span:nth-child(3) {
+    transform: translateY(0px);
+}
+
+/* Rotating on Click */
+.hamburger.clicked span:nth-child(1) {
+    transform: translateY(0px) rotate(45deg) scale(0.8); /* Rotate and move when clicked */
+    width:70%;
+}
+
+.hamburger.clicked span:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+}
+
+.hamburger.clicked span:nth-child(3) {
+    transform: translateY(0px) rotate(-45deg)scale(0.8);
+    width:70%;
+}
+.hamburger.clicked {
+    margin-top: 20px; /* Reduce the top margin to move it further up */
+    position: absolute; /* Make it easier to position */
+    top: 10px; /* Place it at the top of the side menu */
+    right: 20px; /* Adjust horizontal alignment if needed */
+}
+
+.hamburger.clicked span {
+    position: absolute; /* All spans overlap each other */
+    top: 50%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform-origin: center; /* Set the rotation point to the center */
+    translate: -50% -50%; /* Align perfectly to the center */
+}
+
+
+
+@media (max-width: 768px) {
+    .hamburger {
+        width: 50px; /* Shrinks for tablets and smaller screens */
+        height: 35px;
+        margin-right:40px;
+        
+        
+    }
+    .bio{
+        font-size:20px;
+        height: 55vh;
+    }
+
+    .hamburger span {
+        height: 5px; /* Thinner bars for smaller screens */
+        margin-bottom:1px;
+        
+    
+    }
+    .intro{
+        font-size:80px;
+        margin-top:40px;
+    }
+  
+    .overlay.open
+    {
+        width:60%
+    }
+    img{
+        width:100px;
+    
+        margin-right:80px;
+        margin-bottom:20px;
+        
+    }
+    .video-section {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow:hidden;
+    }
+    .imd{
+        margin-bottom: 0;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .hamburger {
+        width: 50px; /* Shrinks further for mobile screens */
+        height: 30px;
+        margin-top:70px;
+        
+    }
+
+    .hamburger span {
+        height: 5px; /* Thinner bars for smaller screens */
+    }
+    .intro{
+        font-size:40px;
+        margin-top:150px;
+        
+    }
+    .overlay.open
+    {
+        width:90%;
+        height:100%;
+    
+        
+    }
+    img{
+       width:150px;
+    }
+    .overlay a {
+        text-align: center;
+        justify-content: center;
+    }
+
+}

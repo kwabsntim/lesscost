@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Background with Navbar</title>
+    <link rel="stylesheet" href="sty;es.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.cdnfonts.com/css/beachday" rel="stylesheet">
+    
+</head>
+<body>
+    <section>
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+    
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="logo.png"  class="d-inline-block align-top" alt="">
+                        
+                    </a>
+                        <div class="d-flex justify">
+                            <div class="hamburger" onclick="toggleMenu()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                          
+                        </div>
+                </div>
+                
+            </nav>
+           
+    
+            <!-- Video Overlay Content -->
+            <div class="video-overlay">
+                <div class="container">
+                  <p class="intro">
+                    <span>"Story Matters"</span>
+                    
+                  </p>
+                </div>
+              </div>
+        </div>
+        
+        <!-- Overlay Side Menu -->
+        <div id="sideMenu" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()"></a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+      
+    </section>
+    <section class="bio">
+        <p>your brand has a story...<br>
+            we know how to tell the story to an<br>
+          <span style="color:#f45f2c;">Awesome Audience!</span>  
+        </p>
+        <p>we want results<br>
+            if you want results too book a call<br>
+            asap!
+        </p>
+        
+        <p>we are not <span style="color: #f45f2c;">conventional</span><br>
+            we make ads that sells<br>
+            we are rad filmakers.
+
+        </p>
+    </section>
+    <section class="works-bg">
+        <h2 class="works">works</h2>
+        <div class="container-fluid mt-4">
+            <div class="row g-0">
+                <!-- First Image with Video -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="containerc position-relative popup-slide">
+                        <img src="im1.jpg" alt="Preview Image 1" class="img-fluid w-100">
+                        <video muted loop class="position-absolute top-50 start-50 translate-middle w-100">
+                            <source src="video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+        
+                <!-- Second Image with Overlay Text -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="containerc position-relative">
+                        <img src="im2.jpg" alt="Avatar" class="img-fluid w-100">
+                    </div>
+                </div>
+        
+                <!-- Third Image with Overlay Text -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="containerc position-relative">
+                        <img src="makersg.jpg" alt="Avatar" class="img-fluid w-100">
+                    </div>
+                </div>
+        
+                <!-- Fourth Image -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="containerc position-relative">
+                        <img src="krt.PNG" alt="Avatar" class="img-fluid w-100">
+                        <video autoplay loop class="position-absolute top-50 start-50 translate-middle w-100">
+                            <source src="video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team mt-4">
+            <h1 class="works">Team</h1>
+            <div class="row mt-4">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                        <div class="image-wrapper">
+                            <img src="teams.PNG" alt="Image">
+                        </div>
+                </div>
+                   
+            </div>
+        </div>
+        
+        
+      
+      
+    </section>
+    
+    
+      
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

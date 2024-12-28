@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #232323;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.bio {
+    margin: 50px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.bio p {
+    opacity: 0; /* Default hidden */
+    transform: translateY(50px); /* Slide in from below */
+    animation: fadeIn 1.2s ease forwards; /* Animation */
+}
+
+.bio p:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.bio p:nth-child(2) {
+    animation-delay: 1.0s;
+}
+
+.bio p:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+  <section class="bio">
+    <p>your brand has a story...<br>
+        we know how to tell the story to an<br>
+        <span style="color:#f45f2c;">Awesome Audience!</span>  
+    </p>
+    <p>we want results<br>
+        if you want results too book a call<br>
+        asap!
+    </p>
+    <p>we are not <span style="color: #f45f2c;">conventional</span><br>
+        we make ads that sells<br>
+        we are rad filmakers.
+    </p>
+</section>
+
+
+  
+     
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const text = document.getElementById('text');
+    const characters = text.innerText.split('');
+    text.innerHTML = ''; // Clear original text
+    
+    // Wrap each character in a span
+    characters.forEach((char, index) => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.style.animationDelay = `${index * 1.0}s`;
+        span.innerText = char;
+        text.appendChild(span);
+    });
+
+    // Scroll event to trigger animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const chars = entry.target.querySelectorAll('.char');
+                chars.forEach((char) => {
+                    char.style.opacity = '1'; // Make visible
+                    char.style.animationPlayState = 'running'; // Start animation
+                });
+            }
+        });
+    });
+
+    observer.observe(text); // Observe the text element
+});
+
+  </script>
+  </html>
+  
+</body>
+</html>
